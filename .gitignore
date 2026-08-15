@@ -1,0 +1,325 @@
+# ============================================================
+# 5-Stage RISC-V Pipeline CPU - Git Ignore
+# ============================================================
+
+# ------------------------------------------------------------
+# Operating System / Editor Files
+# ------------------------------------------------------------
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+
+# Vim / Nano / Emacs
+*.swp
+*.swo
+.#*
+*#
+
+
+# ------------------------------------------------------------
+# Python
+# ------------------------------------------------------------
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.venv/
+venv/
+env/
+ENV/
+
+
+# ------------------------------------------------------------
+# Simulation / Waveform Generated Files
+# ------------------------------------------------------------
+
+# VCD / FST / WLF waveforms
+*.vcd
+*.fst
+*.wlf
+*.vpd
+*.shm
+
+# Simulator databases
+*.ucdb
+*.vst
+
+# Icarus / Verilator generated files
+*.vvp
+*.out
+*.dump
+
+# Verilator
+obj_dir/
+.verilator/
+coverage.dat
+coverage_dir/
+
+# Questa / ModelSim
+transcript
+modelsim.ini
+vsim.wlf
+work/
+questa/
+modelsim/
+
+
+# ------------------------------------------------------------
+# Temporary Simulation Files
+# ------------------------------------------------------------
+
+*.log
+*.tmp
+*.bak
+*.swp
+*.jou
+*.history
+
+# Keep manually created logs only if explicitly force-added
+
+
+# ------------------------------------------------------------
+# Synthesis Generated Files
+# ------------------------------------------------------------
+
+# Generic generated synthesis files
+*.blif
+*.json
+*.synth
+*.synth.v
+
+# Yosys generated databases
+*.yslog
+
+# Generated synthesis temporary directories
+synth_tmp/
+yosys_tmp/
+
+# Do NOT ignore manually maintained synthesis documentation
+# in docs/synthesis/
+
+
+# ------------------------------------------------------------
+# OpenLane / OpenROAD Generated Runs
+# ------------------------------------------------------------
+
+# OpenLane run directories
+openlane/runs/
+openlane/RUN_*/
+runs/
+RUN_*/
+
+# OpenROAD temporary/generated files
+.openroad/
+openroad_tmp/
+
+# OpenROAD databases
+*.odb
+
+# DEF generated during physical design
+*.def
+
+# Temporary OpenROAD files
+*.ord
+*.odb.tmp
+
+
+# ------------------------------------------------------------
+# Physical Design Generated Files
+# ------------------------------------------------------------
+
+# GDS / LEF / DEF generated outputs
+*.gds
+*.gds.gz
+*.lef
+*.mag
+*.maglef
+
+# SPEF / SDF / parasitic files
+*.spef
+*.sdf
+*.rc
+*.dspf
+
+# Extraction / routing temporary files
+*.guide
+*.route
+*.gr
+*.drc
+*.lvs
+
+# SPICE generated files
+*.sp
+*.spi
+
+
+# ------------------------------------------------------------
+# ASIC Tool Reports Generated Automatically
+# ------------------------------------------------------------
+
+# Raw generated reports
+*.rpt
+
+# Raw OpenLane logs
+*.log
+
+# Magic / KLayout / Netgen temporary output
+*.ext
+*.ext.gz
+*.nodes
+*.con
+*.sim
+*.sim.spice
+
+
+# ------------------------------------------------------------
+# Keep Selected Project Documentation
+# ------------------------------------------------------------
+
+# IMPORTANT:
+# docs/ is intentionally NOT ignored.
+#
+# Keep:
+# docs/architecture/
+# docs/rtl/
+# docs/synthesis/
+# docs/physical_design/
+#
+# These contain project documentation and selected results.
+
+
+# ------------------------------------------------------------
+# Keep Selected Waveform Documentation
+# ------------------------------------------------------------
+
+# The waveform directory itself is kept.
+# Generated waveform databases are ignored above.
+#
+# You can keep:
+# waveforms/README.md
+# waveforms/*.png
+# waveforms/*.pdf
+
+
+# ------------------------------------------------------------
+# Keep Selected Synthesis Documentation
+# ------------------------------------------------------------
+
+# The synthesis directory itself is kept.
+#
+# If you have manually prepared summaries such as:
+# synthesis/README.md
+# synthesis/summary.md
+# they remain tracked.
+
+
+# ------------------------------------------------------------
+# Netlist
+# ------------------------------------------------------------
+
+# Generated netlists can become large.
+# If your netlist/ directory contains ONLY generated files,
+# ignore it:
+#
+# netlist/
+#
+# BUT for your project, I recommend keeping the final
+# synthesized netlist if you want to demonstrate synthesis.
+#
+# Therefore netlist/ is NOT ignored here.
+
+
+# ------------------------------------------------------------
+# Generated Results
+# ------------------------------------------------------------
+
+# Raw OpenLane/OpenROAD results
+results/
+
+# Keep documentation/screenshots separately in docs/
+# rather than committing entire generated result trees.
+
+
+# ------------------------------------------------------------
+# Large Generated Files
+# ------------------------------------------------------------
+
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Large database files
+*.sqlite
+*.db
+
+
+# ------------------------------------------------------------
+# Credentials / Secrets
+# ------------------------------------------------------------
+
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.p12
+
+
+# ------------------------------------------------------------
+# Build / Temporary Directories
+# ------------------------------------------------------------
+
+build/
+dist/
+tmp/
+temp/
+cache/
+.cache/
+
+
+# ------------------------------------------------------------
+# FPGA / Vivado Generated Files
+# ------------------------------------------------------------
+
+# If Vivado is used for RTL testing
+.xpr
+.cache/
+.hw/
+.ip_user_files/
+.sim/
+.gen/
+*.runs/
+*.jou
+*.str
+
+# Keep source RTL and constraints
+
+
+# ------------------------------------------------------------
+# Miscellaneous Generated Files
+# ------------------------------------------------------------
+
+*.bak
+*.orig
+*.rej
+*.old

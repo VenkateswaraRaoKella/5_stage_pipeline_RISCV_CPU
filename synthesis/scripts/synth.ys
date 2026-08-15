@@ -1,0 +1,154 @@
+# ==========================================================
+# RISC-V 5-Stage Pipeline CPU
+# Yosys Synthesis Script
+# ==========================================================
+
+# ==========================================================
+# READ RTL FILES
+# ==========================================================
+
+# -------------------------
+# Common
+# -------------------------
+
+read_verilog ../src/common/adder.v
+read_verilog ../src/common/mux2.v
+read_verilog ../src/common/mux4.v
+read_verilog ../src/common/program_counter.v
+
+# -------------------------
+# Control
+# -------------------------
+
+read_verilog ../src/control/alu_control.v
+read_verilog ../src/control/branch_unit.v
+read_verilog ../src/control/control_unit.v
+read_verilog ../src/control/decoder.v
+read_verilog ../src/control/forwarding_unit.v
+read_verilog ../src/control/hazard_detection_unit.v
+read_verilog ../src/control/flush_unit.v
+read_verilog ../src/control/stall_unit.v
+
+# -------------------------
+# Datapath
+# -------------------------
+
+read_verilog ../src/datapath/alu.v
+read_verilog ../src/datapath/comparator.v
+read_verilog ../src/datapath/execute_stage.v
+read_verilog ../src/datapath/immediate_generator.v
+read_verilog ../src/datapath/register_file.v
+
+# -------------------------
+# Memory
+# -------------------------
+
+read_verilog ../src/memory/data_memory.v
+read_verilog ../src/memory/instruction_memory.v
+read_verilog ../src/memory/memory_stage.v
+
+# -------------------------
+# Pipeline Registers
+# -------------------------
+
+read_verilog ../src/pipeline/ex_mem_reg.v
+read_verilog ../src/pipeline/id_ex_reg.v
+read_verilog ../src/pipeline/if_id_reg.v
+read_verilog ../src/pipeline/mem_wb_reg.v
+
+# -------------------------
+# Top
+# -------------------------
+
+read_verilog ../src/top/riscv_cpu.v
+
+# -------------------------
+# Writeback
+# -------------------------
+
+read_verilog ../src/writeback/writeback_stage.v
+
+# -------------------------
+# Stages
+# -------------------------
+
+read_verilog ../src/stages/fetch_stage.v
+
+# ==========================================================
+# HIERARCHY
+# ==========================================================
+
+hierarchy -top riscv_cpu
+
+# ==========================================================
+# RTL PROCESSING
+# ==========================================================
+
+proc
+
+# ==========================================================
+# OPTIMIZATION
+# ==========================================================
+
+opt
+
+# ==========================================================
+# FSM PROCESSING
+# ==========================================================
+
+fsm
+opt
+
+# ==========================================================
+# MEMORY PROCESSING
+# ==========================================================
+
+memory
+opt
+
+# ==========================================================
+# TECHNOLOGY MAPPING
+# ==========================================================
+
+techmap
+opt
+
+# ==========================================================
+# FLATTEN DESIGN
+# ==========================================================
+
+flatten
+opt
+
+# ==========================================================
+# SYNTHESIS
+# ==========================================================
+
+synth -top riscv_cpu
+
+# ==========================================================
+# WRITE SYNTHESIZED NETLIST
+# ==========================================================
+
+write_verilog ../netlist/riscv_cpu_synth.v
+
+# ==========================================================
+# DISPLAY DESIGN STATISTICS
+# ==========================================================
+
+# Display synthesis statistics in the terminal
+stat
+
+# General synthesis report
+tee -o ./reports/synthesis.rpt stat
+
+# Area/statistics report
+tee -o ./reports/area.rpt stat
+
+# ----------------------------------------------------------
+# Generate RTL schematic
+# ----------------------------------------------------------
+
+show -format dot -prefix rtl_schematic riscv_cpu
+
+show -format png -prefix rtl_schematic riscv_cpu
