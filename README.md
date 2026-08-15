@@ -593,15 +593,15 @@ docs/
 ├── architecture/
 │   └── CPU architecture and pipeline documentation
 │
-├── rtl/
-│   └── RTL module and verification documentation
+├── physical_design/
+│   └── floorplan, placement, CTS, routing,
+│       DRC, LVS and layout documentation
 │
 ├── synthesis/
 │   └── synthesis results and analysis
 │
-└── physical_design/
-    └── floorplan, placement, CTS, routing,
-        DRC, LVS and layout documentation
+└── waveforms/
+    └── RTL module and verification documentation
 ```
 
 ---
